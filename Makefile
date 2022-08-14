@@ -6,7 +6,7 @@ OBJ = distributions.o rands.o
 all:	test
 
 test:	test.c $(OBJ)
-	$(CC) $(CFLAGS) -o  $@ $^ 
+	$(CC) $(CFLAGS) -o  $@ $^ -lm
 
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -c -o  $@ $< 
