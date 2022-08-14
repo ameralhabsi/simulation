@@ -42,7 +42,8 @@ int main()
 		s4 += (x*x*x*x);
 		
 		idx = (int) round(x*10) + 21;
-		bin[idx]++;
+		if(idx<42)
+			bin[idx]++;
 	}
 
 	printf("s0 = %10.4f\n", s0/N);
