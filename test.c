@@ -46,6 +46,7 @@ int main()
 			bin[idx]++;
 	}
 
+	printf("sample of the zeroth, second and 4th moments\n");
 	printf("s0 = %10.4f\n", s0/N);
 	printf("s2 = %10.4f\n", s2/N);
 	printf("s4 = %10.4f\n", s4/N);
