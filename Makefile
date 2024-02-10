@@ -17,3 +17,9 @@ test:	test.c $(OBJ)
 
 clean:
 	rm -f *.o *~ core test test.exe
+
+install:
+	ar -rc -o libsimulation.a *.o
+	cp rands.h /usr/local/include
+	cp distributions.h /usr/local/include
+	cp libsimulation.a /usr/local/lib

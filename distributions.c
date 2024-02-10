@@ -147,7 +147,7 @@ double Q(double x)
 }
 
 /*--------------------------------------------------------*/
-/* Phi-function: left tail of Gaussian (Normal) distribution
+/* Phi-function: left tail of Gaussian (Normal) distribution, N(0,1)
    phi(x) = 1 - Q(x)
  */
 double phi(double x)
