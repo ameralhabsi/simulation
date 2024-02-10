@@ -39,7 +39,7 @@ double gen_uniform53() {
 double gen_uniform()
 {
 	return gen_uniform53();
-};	
+}
 
 /*-------------------------------------------------------*/
 /* Generates discrete (a, b) inclusive. Caller ensures a<b */
@@ -115,7 +115,7 @@ int gen_bernoulli(double p)
 
 /*--------------------------------------------------------*/
 
-int gen_weibull(double k, double lambda)
+double gen_weibull(double k, double lambda)
 {
 	double x, z;
 	x = gen_uniform53();
@@ -135,7 +135,32 @@ double gen_exponential(double lambda)
 	z = -log(u1)/lambda;
 	return (z);
 }
+/*--------------------------------------------------------*/
+double cauchy()
+{
+	double u1, z;
+	u1 = gen_uniform53();
+	z=tan(M_PI*(u1-0.5));
+	return z;
+}
+/*--------------------------------------------------------*/
+int poisson(double lambda)
+{
+	double L, p, u1;
+	int k;
+	
+	L=exp(-lambda);
+	k=0;
+	p=1;
+	do{
+		k++;
+		u1 = gen_uniform53();
+		p = p*u1;
 
+	}while(p>L);
+
+	return (k-1);
+}
 
 /*--------------------------------------------------------*/
 /* Q-function: right tail of Gaussian (Normal) distribution

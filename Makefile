@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-I. -O2 -Wall
+CFLAGS=-I. -O2 -Wall -Wextra -Wpedantic
 DEPS = distributions.h
 OBJ = distributions.o rands.o 
 
