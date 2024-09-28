@@ -3,10 +3,14 @@ CFLAGS=-I. -O2 -Wall -Wextra -Wpedantic
 DEPS = distributions.h
 OBJ = distributions.o rands.o 
 
-all:	test
+all:	test libsimulation.a
 
 test:	test.c $(OBJ)
 	$(CC) $(CFLAGS) -o  $@ $^ -lm
+
+libsimulation.a:	$(OBJ)
+	$(CC) -c $(CFLAGS) $(OBJ)
+	ar rcs $@ $(OBJ)
 
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -c -o  $@ $< 
@@ -16,7 +20,7 @@ test:	test.c $(OBJ)
 .PHONY: clean all
 
 clean:
-	rm -f *.o *~ core test test.exe
+	rm -f *.o *~ core test test.exe a.exe a.out
 
 install:
 	ar -rc -o libsimulation.a *.o
