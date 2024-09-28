@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{minted}
+\title{Simulation: Computer Simulation Library in C\\Function Reference}
+\author{Amer Alhabsi}
+\begin{document}
+\maketitle
+This is a simple library written int he C programming language to provide functions needed for computer simulation. In particular, it provides functions for the generation of random numbers based on different statistical distributions. By itself, the library does not do much. However, if you write simulation programs and would like to use the functions provided, you simple link against the library.
+\section{Compiling}
+To compile the library in Linux of FreeBSD, you simply run {\texttt make}. It will generate the library \texttt{libsimulation.a}. This also works on Windows with MinGW.
+\section{Usage}
+Before using the functions of the library, one must call the initialization function: \texttt{init()}. The argument is any integer up to 64-bit long.
+
+The other functions simply return random number from a given distribution. The list below summarizes the functions.
+
+\subsection{Uniform distribution}
+    \texttt{double gen\_uniform()}  Generates uniformly distributed random number in the range $[0, 1)$. Example,
+\begin{minted}{C}
+    double x;
+    x = gen_uniform();
+\end{minted}
+\subsection{Weibull distribution}    
+\texttt{double gen\_weibull(double k, double lambda)}  Generates Weibull distributed random number with parameters $k$ and $\lambda$.
+\begin{minted}{C}
+    double x;
+    x = gen_weibull(1.0, 2.0);
+\end{minted}
+
+
+    
+
+
+\end{document}
