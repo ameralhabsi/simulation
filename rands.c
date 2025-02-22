@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <inttypes.h>
 #include <time.h>
-#define _USE_MATH_DEFINES 
+#define _USE_MATH_DEFINES
 #include <math.h>
 
 #ifndef M_PI
@@ -12,9 +12,9 @@
 uint64_t xseed;
 
 uint64_t splitmix64() {
-	uint64_t z = (xseed += 0x9e3779b97f4a7c15);
-	z = (z ^ (z >> 30)) * 0xbf58476d1ce4e5b9;
-	z = (z ^ (z >> 27)) * 0x94d049bb133111eb;
+	uint64_t z = (xseed += 0x9e3779b97f4a7c15ul);
+	z = (z ^ (z >> 30)) * 0xbf58476d1ce4e5b9ul;
+	z = (z ^ (z >> 27)) * 0x94d049bb133111ebul;
 	return z ^ (z >> 31);
 }
 
@@ -38,9 +38,9 @@ void init (uint64_t seed)
 	st[0] = splitmix64();
 	st[1] = splitmix64();
 	st[2] = splitmix64();
-	st[3] = splitmix64();	
+	st[3] = splitmix64();
 }
-	
+
 /* pseudo randon number generator based on xorshift, has a period of 2^{256}-1 */
 uint64_t gen64uint(void) {
 	const uint64_t result = rotl(st[1] * 5, 7) * 9;
@@ -56,3 +56,4 @@ uint64_t gen64uint(void) {
 
 	return result;
 }
+
